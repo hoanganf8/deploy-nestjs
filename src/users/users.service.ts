@@ -1,16 +1,16 @@
-import { InjectQueue } from '@nestjs/bullmq';
+// import { InjectQueue } from '@nestjs/bullmq';
 import { Injectable } from '@nestjs/common';
-import { EventEmitter2, OnEvent } from '@nestjs/event-emitter';
-import { Queue } from 'bullmq';
-import { EventName, QueueName } from 'src/app.interface';
+import { OnEvent } from '@nestjs/event-emitter';
+// import { Queue } from 'bullmq';
+import { EventName } from 'src/app.interface';
 
 @Injectable()
 export class UsersService {
-  constructor(
-    @InjectQueue(QueueName.EMAIL) private emailQueue: Queue,
-    private eventEmitter: EventEmitter2,
-  ) {}
-  async createUser(body: any) {
+  // constructor(
+  //   @InjectQueue(QueueName.EMAIL) private emailQueue: Queue,
+  //   private eventEmitter: EventEmitter2,
+  // ) {}
+  async createUser() {
     // await this.emailQueue.add(
     //   'sendEmail',
     //   {
@@ -25,7 +25,7 @@ export class UsersService {
     //   },
     // );
     // console.log(job);
-    this.eventEmitter.emit('user.created', body); //Dispatch Event
+    // this.eventEmitter.emit('user.created', body); //Dispatch Event
   }
 
   @OnEvent(EventName.USER_CREATED)
