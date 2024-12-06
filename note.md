@@ -132,3 +132,9 @@ Kỹ thuật đặt tên event
 - product.deleted
 
 Lưu ý: Không hardcode dưới mọi hình thức
+
+## Đặt giá khuyến mãi
+
+price
+sale_price
+sale_end_date
